@@ -15,7 +15,7 @@
           <div class="col-md-6 col-sm-5 co-xs-12 text-right">
             <div class="bread">
               <ol class="breadcrumb">
-                <li><a href="#">Home</a>
+                <li><a href="/">Home</a>
                 </li>
                 <li><a href="#">Pages</a>
                 </li>
@@ -64,6 +64,32 @@
                         value="<%= post.price %>"
                         required
                         >
+                </div>
+
+                <div class="form-group">
+                    <label for="sel1">Select list:</label>
+                    <select class="form-control" name="status"
+                            required id="sel1">
+                        <%
+                        var options = [ "ENABLE", "DISABLE" ];
+                        for ( var i = 0; i < options.length; i++ )
+                        {
+                            var selected = ( post.status == options[ i ] ) ? "selected" : "";
+                        %><option value="<%=options[ i ] %>" <%=selected %>><%=options[ i ] %></option><%
+                        }
+                        %>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="expireOnTextField">Expire On</label>
+                    <input type="date" class="form-control"
+                           id="expireOnTextField"
+                           placeholder="Enter expire date"
+                           name="expires_on"
+                           value="<%= moment(post.expires_on).format('YYYY-MM-DD') %>"
+                           required
+                    >
                 </div>
 
                 <br/>
@@ -122,8 +148,8 @@
   <!--Style Switcher -->
   <script src="/js/bootstrap-dropdownhover.min.js"></script>
   <!-- Include jQuery Syntax Highlighter -->
-  <script type="text/javascript" src="scripts/shCore.js"></script>
-  <script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+  <script type="text/javascript" src="/scripts/shCore.js"></script>
+  <script type="text/javascript" src="/scripts/shBrushPhp.js"></script>
   <!-- Template Core JS -->
   <script src="/js/custom.js"></script>
   <!-- FOR THIS PAGE ONLY -->

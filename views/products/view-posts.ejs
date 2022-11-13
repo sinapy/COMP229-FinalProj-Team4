@@ -51,6 +51,8 @@
                     <tr>
                         <td class="text-center"><%= postsList[i].title %></td>
                         <td class="text-center">$<%= postsList[i].price %></td>
+                        <td class="text-center"><%= postsList[i].status %></td>
+                        <td class="text-center"><%= postsList[i].expires_on %></td>
                         <td class="text-center">
                             <a href="/products/details/<%= postsList[i]._id %>" class="btn btn-success btn-sm"> 
                             <i class="fas fa-info"></i> </a>
@@ -68,6 +70,7 @@
                             <!-- --------------------------- -->
                             <a href="/products/delete/<%= postsList[i]._id %>" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i></a>
+
                         </td>
                     </tr>
                 <% } %>
@@ -113,13 +116,14 @@
   <!--Style Switcher -->
   <script src="/js/bootstrap-dropdownhover.min.js"></script>
   <!-- Include jQuery Syntax Highlighter -->
-  <script type="text/javascript" src="scripts/shCore.js"></script>
-  <script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+  <script type="text/javascript" src="/scripts/shCore.js"></script>
+  <script type="text/javascript" src="/scripts/shBrushPhp.js"></script>
   <!-- Template Core JS -->
   <script src="/js/custom.js"></script>
   <!-- FOR THIS PAGE ONLY -->
   <script src="/js/imagesloaded.js"></script>
   <script src="/js/isotope.min.js"></script>
+
   <script type="text/javascript">
     (function($) {
       "use strict";

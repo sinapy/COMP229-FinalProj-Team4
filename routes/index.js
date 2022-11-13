@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+let productsController = require('../controllers/posts');
+let indexController = require('../controllers/index')
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
+router.get('/', indexController.featuredPostsList);
 
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Express' });

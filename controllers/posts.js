@@ -1,5 +1,5 @@
 // create a reference to the model
-let productModel = require('../models/product');
+let productModel = require('../models/post');
 let moment = require('moment');
 
 // Gets all posts from the Database and renders the page to list them all.
@@ -59,7 +59,7 @@ module.exports.displayEditPage = (req, res, next) => {
             //show the edit view
             res.render('products/create-post', {
                 post: postToShow,
-				moment: moment
+                moment: moment
             })
         }
     });  
@@ -130,7 +130,8 @@ module.exports.performDelete = (req, res, next) => {
 module.exports.displayAddPage = (req, res, next) => {
 
     res.render('products/create-post', {
-        post: {}
+        post: {},
+        moment: moment
     })     
 
 }
@@ -144,8 +145,8 @@ module.exports.processAddPage = (req, res, next) => {
         _id: Math.random().toString(36).slice(2),
         title: req.body.title,
         price: req.body.price,
- 		status: req.body.status,
- 		expires_on: req.body.expires_on,
+        status: req.body.status,
+        expires_on: req.body.expires_on,
         
     });
 

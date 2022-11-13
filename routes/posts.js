@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let postsController = require('../controllers/products');
+let postsController = require('../controllers/posts');
 
 
 router.get('/view-posts', postsController.postsList);

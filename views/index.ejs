@@ -55,13 +55,13 @@
 								<img alt="blog-image1" class="img-responsive" src="/images/blog/1.jpg">
 							</div>
 							<div class="blog-content">
-								<h5><a href="blog-detail.html">How to prevent my website from being scrolled horizontally?</a></h5>
+								<h5><a href="#">Why use our website?</a></h5>
 								<ul class="post-meta">
 									<li>By Admin</li>
 									<li>Php</li>
-									<li>27 July 2016</li>
+									<li>12 Nov 2022</li>
 								</ul>
-								<p>We can make table scrollable by adding table-responsive class to it, but how can we loop it so that once the loop ends..</p>
+								<p>Not only used products, this website will have monthly articles about how to sell your used products more effectively, how to protect your used products, and other articles related to this industry</p>
 							</div>
 							<div class="blog-footer">
 								<ul class="like-comment">
@@ -81,13 +81,13 @@
 								<img alt="blog-image1" class="img-responsive" src="/images/blog/2.jpg">
 							</div>
 							<div class="blog-content">
-								<h5><a href="blog-detail.html">What's the best way to implement a 2D interval search in C++?</a></h5>
+								<h5><a href="#">How compatible is the website with different browsers?</a></h5>
 								<ul class="post-meta">
 									<li>By Admin</li>
-									<li>Php</li>
-									<li>27 July 2016</li>
+									<li>HTML</li>
+									<li>12 Nov 2022</li>
 								</ul>
-								<p>We can make table scrollable by adding table-responsive class to it, but how can we loop it so that once the loop ends..</p>
+								<p>This website can be accessed from any browser!.</p>
 							</div>
 							<div class="blog-footer">
 								<ul class="like-comment">
@@ -107,13 +107,13 @@
 								<img alt="blog-image1" class="img-responsive" src="/images/blog/3.jpg">
 							</div>
 							<div class="blog-content">
-								<h5><a href="blog-detail.html"> Access a list within an element of a Pandas DataFrame </a></h5>
+								<h5><a href="#"> How to use the smart search option on the website? </a></h5>
 								<ul class="post-meta">
 									<li>By Admin</li>
-									<li>Php</li>
-									<li>27 July 2016</li>
+									<li>HTML</li>
+									<li>12 Nov 2022</li>
 								</ul>
-								<p>We can make table scrollable by adding table-responsive class to it, but how can we loop it so that once the loop ends..</p>
+								<p>Search based on keyword. Our smart search will find posts that have that keyword in them</p>
 							</div>
 							<div class="blog-footer">
 								<ul class="like-comment">
@@ -128,6 +128,37 @@
 					<!-- Blog Grid -->
 					<div class="clearfix"></div>
 					<div class="text-center clearfix section-padding-40"> <a href="products/view-posts" class="btn btn-lg btn-primary">View all Post</a> 
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="row">
+					<!-- Blog Grid -->
+				<%for (let i = 0; i < featuredPostLists.length; i ++){%>
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<div class="blog-grid">
+							<div class="blog-image">
+								<h2><%=featuredPostLists[i].title %></h2>
+							</div>
+							<div class="blog-content">
+								<h5><a href="blog-detail.html">Price: $<%=featuredPostLists[i].price%></a></h5>
+
+								<p>We can make table scrollable by adding table-responsive class to it, but how can we loop it so that once the loop ends..</p>
+							</div>
+							<div class="blog-footer">
+								<ul class="like-comment">
+									<li><a href="#"><i class="icon-heart"></i>23</a>
+									</li>
+									<li><a href="#"><i class="icon-chat"></i>32</a>
+									</li>
+								</ul> <a href="#" class="more-btn pull-right"><i class="fa fa-long-arrow-right"></i> MORE</a>
+							</div>
+						</div>
+					</div>
+					<!-- Blog Grid -->
+					<%}%>
+					<!-- Blog Grid -->
+					<div class="clearfix"></div>
+					<div class="text-center clearfix section-padding-40"> <a href="products/view-posts" class="btn btn-lg btn-primary">View all Post</a>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -193,8 +224,8 @@
 	<!--Style Switcher -->
 	<script src="/js/bootstrap-dropdownhover.min.js"></script>
 	<!-- Include jQuery Syntax Highlighter -->
-	<script type="text/javascript" src="scripts/shCore.js"></script>
-	<script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="/scripts/shCore.js"></script>
+	<script type="text/javascript" src="/scripts/shBrushPhp.js"></script>
 	<!-- Template Core JS -->
 	<script src="/js/custom.js"></script>
 </body>

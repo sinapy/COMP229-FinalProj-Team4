@@ -57,21 +57,22 @@
                         <td class="text-center"><%= postsList[i].expires_on %></td>
                         <td class="text-center">
                             <a href="/products/details/<%= postsList[i]._id %>" class="btn btn-success btn-sm"> 
-                            <i class="fas fa-info"></i> </a>
+                            <i class="fa fa-info"></i> </a>
                         </td>
                         <td class="text-center">
                             <!-- ------------------------- -->
                             <!-- Fix the EDIT button below -->
                             <!-- ------------------------- -->
                             <a href="/products/edit/<%= postsList[i]._id %>" class="btn btn-primary btn-sm">
-                            <i class="fas fa-pencil-alt"></i></a>
+                            <i class="fa fa-pencil"></i></a>
                         </td>
                         <td class="text-center">
                             <!-- --------------------------- -->
                             <!-- Fix the DELETE button below -->
                             <!-- --------------------------- -->
                             <a href="/products/delete/<%= postsList[i]._id %>" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i></a>
+                            <i class="fa fa-trash"></i></a>
+
                         </td>
                     </tr>
                 <% } %>
@@ -117,13 +118,14 @@
   <!--Style Switcher -->
   <script src="/js/bootstrap-dropdownhover.min.js"></script>
   <!-- Include jQuery Syntax Highlighter -->
-  <script type="text/javascript" src="scripts/shCore.js"></script>
-  <script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+  <script type="text/javascript" src="/scripts/shCore.js"></script>
+  <script type="text/javascript" src="/scripts/shBrushPhp.js"></script>
   <!-- Template Core JS -->
   <script src="/js/custom.js"></script>
   <!-- FOR THIS PAGE ONLY -->
   <script src="/js/imagesloaded.js"></script>
   <script src="/js/isotope.min.js"></script>
+
   <script type="text/javascript">
     (function($) {
       "use strict";

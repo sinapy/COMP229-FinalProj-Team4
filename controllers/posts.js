@@ -2,8 +2,6 @@
 let productModel = require('../models/post');
 let moment = require('moment');
 
-let sampleList = []
-
 // Gets all posts from the Database and renders the page to list them all.
 module.exports.postsList = function(req, res, next) {  
     

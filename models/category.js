@@ -4,13 +4,7 @@ let category = mongoose.Schema(
     {
         _id: String,
         title: String,
-        status: {
-            type: String,
-            enum: ['ENABLE', 'DISABLE'],
-            default: 'ENABLE'
-        },
-        price: Number,
-        expires_on: Date
+        description: String
     },
     {
         collection: "category"

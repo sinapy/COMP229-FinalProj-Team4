@@ -1,7 +1,7 @@
 // create a reference to the model
 let productModel = require('../models/post');
 let moment = require('moment');
-let category = require('../models/prod');
+
 
 module.exports.postsList = function(req, res, next) {  
     

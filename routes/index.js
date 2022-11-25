@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-let productsController = require('../controllers/posts');
 let indexController = require('../controllers/index')
 
 /* GET home page. */

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 let postsController = require('../controllers/posts');
+let requireAuth = require('../controllers/auth').requireAuth;
 
 
 router.get('/view-posts', postsController.postsList);
@@ -17,8 +18,8 @@ router.get('/details/:id', postsController.details);
 
 
 // Routers for edit
-router.get('/edit/:id', postsController.displayEditPage);
-router.post('/edit/:id', postsController.processEditPage);
+router.get('/edit/:id', requireAuth, postsController.displayEditPage);
+router.post('/edit/:id', requireAuth, postsController.processEditPage);
 
 // Delete
 router.get('/delete/:id', postsController.performDelete);

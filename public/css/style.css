@@ -1,43 +1,4 @@
-/*/images//images//images//images//images//images//images//images//images//images//images/
-Template: Knowledge Q&A Dashboard Template
-Author: ScriptsBundle
-Version: 1.0
-Designed and Development by: ScriptsBundle
-*/
-/*
-====================================
-[ CSS TABLE CONTENT ]
-------------------------------------
-    1.0 -  General Style
-	2.0 -  Helper Classes
-    3.0 -  Typography
-	4.0 -  PreLoader
-    5.0 -  Page Heading Area & Breadcrumb
-	6.0 -  Header Top Bar
-    7.0 -  Navigation
-    8.0 -  Search Form
-    9.0 -  Parallax Settings
-	10.0 -  How It Works
-	11.0 -  Questions Listings
-	12.0 -  Question Tabs
-    13.0 -  Profile Settings 
-    14.0 -  Timeline Activity
-    15.0 - Funfacts
-    16.0 - Ribbons 
-	17.0 - Blog & News
-	18.0 - Thread Reply
-    19.0 - Testimonials
-    20.0 - Our Apps
-	21.0 - Social Feeds
-	22.0 - Error Page
-	23.0 - Login & Registration
-    24.0 - Contact Us
-    25.0 - Footer
-    26.0 - Responsive Media Quries
--------------------------------------
-[ END CSS TABLE CONTENT ]
-=====================================
-*/
+
 
 html, body {
 	height: 100%;
@@ -3741,4 +3702,10 @@ form.search-form input.search-btn {
     float: left;
     font-size: 11px;
 }
+}
+
+.logout-btu{
+    background-color: #be161e;
+    border: none;
+    color: white;
 }

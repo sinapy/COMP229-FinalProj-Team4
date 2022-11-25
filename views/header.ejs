@@ -54,23 +54,36 @@
 				<ul class="top-nav nav-left">
 					<li><a href="/">Home</a>
 					</li>
-					<li class="hidden-xs"><a href="#">Home & Kitchen</a>
+					<li class="hidden-xs"><a href="/home-kitchen">Home & Kitchen</a>
 					</li>
-					<li  class="hidden-xs"><a href="#">Electronics</a>
+					<li  class="hidden-xs"><a href="/electronics">Electronics</a>
 					</li>
-					<li  class="hidden-xs"><a href="#">Best Sellers</a>
+					<li  class="hidden-xs"><a href="/best-sellers">Best Sellers</a>
 					</li>
 				</ul>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
-				<ul class="top-nav nav-right">
-					<li><a href="/login"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
-					</li>
-					<li><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
-					</li>
-					
-				</ul>
-			</div>
+			<% if (isAuthenticated) { %>
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
+					<ul class="top-nav nav-right">
+						<form action="/logout" method="POST">
+							<button type="submit" class="logout-btu"><i class="fa fa-lock" aria-hidden="true"></i>Log Out</button>
+						  </form>
+						
+						</li>
+					</ul>
+				</div>
+				<%} else { %>
+					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
+						<ul class="top-nav nav-right">
+							<li><a href="/login"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
+							</li>
+							<li><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
+							</li>
+							
+						</ul>
+					</div>
+				<% } %>
+			
 		</div>
 	</div>
 </div>

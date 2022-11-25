@@ -2,25 +2,25 @@ var express = require('express');
 var router = express.Router();
 
 let postsController = require('../controllers/posts');
+const checkAuthenticated = require('../config/middleware/checkAuthenticated.js');
 
-
-router.get('/view-posts', postsController.postsList);
+router.get('/view-posts',checkAuthenticated ,postsController.postsList);
 
 /* GET Route for displaying the Add page - CREATE Operation */
-router.get('/create-post', postsController.displayAddPage);
+router.get('/create-post',checkAuthenticated, postsController.displayAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/create-post', postsController.processAddPage);
+router.post('/create-post',checkAuthenticated, postsController.processAddPage);
 
 // Route for Details
-router.get('/details/:id', postsController.details);
+router.get('/details/:id',checkAuthenticated, postsController.details);
 
 
 // Routers for edit
-router.get('/edit/:id', postsController.displayEditPage);
-router.post('/edit/:id', postsController.processEditPage);
+router.get('/edit/:id',checkAuthenticated, postsController.displayEditPage);
+router.post('/edit/:id',checkAuthenticated, postsController.processEditPage);
 
 // Delete
-router.get('/delete/:id', postsController.performDelete);
+router.get('/delete/:id',checkAuthenticated, postsController.performDelete);
 
 module.exports = router;

@@ -42,6 +42,7 @@
                 <tr>
                     <th class="text-center">Title</th>                    
                     <th class="text-center">Price</th>
+                    <th class="text-center">Category</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Expire On</th>
                     <th class="text-center" colspan="3">Actions</th>
@@ -50,15 +51,18 @@
                 <!-- Repeatable Template Row -->
     
                 <% for(let i = 0; i < postsList.length; i++) { %>
+                <% if (req.user.id == postsList[i].created_by || (req.user.id != postsList[i].created_by && (postsList[i].expires_on >= new Date() || postsList[i].status == 'DISABLE' ))) { %>
                     <tr>
                         <td class="text-center"><%= postsList[i].title %></td>
                         <td class="text-center">$<%= postsList[i].price %></td>
+                        <td class="text-center"><%= postsList[i].category %></td>
                         <td class="text-center"><%= postsList[i].status %></td>
                         <td class="text-center"><%= postsList[i].expires_on %></td>
                         <td class="text-center">
                             <a href="/products/details/<%= postsList[i]._id %>" class="btn btn-success btn-sm"> 
                             <i class="fa fa-info"></i> </a>
                         </td>
+                        <% if (req.user.id == postsList[i].created_by) { %>
                         <td class="text-center">
                             <!-- ------------------------- -->
                             <!-- Fix the EDIT button below -->
@@ -74,7 +78,9 @@
                             <i class="fa fa-trash"></i></a>
 
                         </td>
+                        <% } %>
                     </tr>
+                     <% } %>
                 <% } %>
             </table>
         </div>

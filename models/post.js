@@ -10,7 +10,12 @@ let productModel = mongoose.Schema(
             default: 'ENABLE'
         },
         price: Number,
-        expires_on: Date
+        expires_on: Date,
+		created_by: String,
+		category: {
+            type: String,
+            enum: ['Properties', 'Mobiles', 'Jobs', 'Bikes', 'Electronics & Appliances', 'Cars', 'Furniture', 'Pets']
+        }
     },
     {
         collection: "Products"

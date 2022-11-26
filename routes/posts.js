@@ -4,7 +4,7 @@ var router = express.Router();
 let postsController = require('../controllers/posts');
 const checkAuthenticated = require('../config/middleware/checkAuthenticated.js');
 
-router.get('/view-posts',checkAuthenticated ,postsController.postsList);
+router.get('/view-posts' ,postsController.postsList);
 
 /* GET Route for displaying the Add page - CREATE Operation */
 router.get('/create-post',checkAuthenticated, postsController.displayAddPage);

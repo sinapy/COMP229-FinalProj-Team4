@@ -77,6 +77,10 @@ module.exports.processEditPage = (req, res, next) => {
         _id: req.body.id,
         title: req.body.title,
         price: req.body.price,
+ 		status: req.body.status,
+        expires_on: req.body.expires_on,
+        category: req.body.category
+
     });
 
     // ADD YOUR CODE HERE
@@ -147,7 +151,8 @@ module.exports.processAddPage = (req, res, next) => {
         price: req.body.price,
         status: req.body.status,
         expires_on: req.body.expires_on,
-        
+        created_by: req.user.id,
+        category: req.body.category
     });
 
     // ADD YOUR CODE HERE

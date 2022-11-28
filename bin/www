@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
- var configDB = require('../config/db');
-var app = require('../config/app');
+ var configDB = require('../app/config/db');
+var app = require('../app');
 var debug = require('debug')('comp229-finalproject-team4:server');
 var http = require('http');
 

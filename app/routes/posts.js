@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 let postsController = require('../controllers/posts');
-const checkAuthenticated = require('../middleware/checkAuthenticated.js');
+const checkAuthenticated = require('../middlewares/checkAuthenticated.js');
 
 router.get('/view-posts' ,postsController.postsList);
 

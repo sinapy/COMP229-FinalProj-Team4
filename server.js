@@ -10,6 +10,8 @@ let atlasDB = `mongodb+srv://${username}:${password}@${cluster}.qysqx.mongodb.ne
 const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
+var configFirebase = require('./app/config/firebaseAdmin');
+let fb = configFirebase();
 
 
 
@@ -54,7 +56,7 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
+    res.json({ message: "Welcome to WLDG application." });
 });
 
 // routes

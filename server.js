@@ -7,13 +7,10 @@ const dbname = "WDLG"
 
 let atlasDB = `mongodb+srv://${username}:${password}@${cluster}.qysqx.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
-var createError = require('http-errors');
 var express = require('express');
 var logger = require('morgan');
-let compress = require('compression');
 let cors = require('cors');
 
-var errorHandler = require('./error-handler');
 
 
 const cookieSession = require("cookie-session");
@@ -23,7 +20,7 @@ var configFirebase = require('./app/config/firebaseAdmin');
 const {ErrorReporting} = require('@google-cloud/error-reporting');
 
 // Instantiates a client
-const errors = new ErrorReporting();
+const errors = new ErrorReporting({reportMode: 'always'});
 
 // Reports a simple error
 errors.report('1 passes!');
@@ -89,7 +86,7 @@ app.get("/", (req, res) => {
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
-require("./app/routes/posts.routes")(app);
+//require("./app/routes/posts.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

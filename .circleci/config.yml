@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Setup Google Cloud CLI
           command: |
-            echo $GCLOUD_SERVICE_KEY_V2 | gcloud auth activate-service-account --key-file=-
+            echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
             gcloud --quiet config set project wldg-backend
             gcloud --quiet config set compute/zone northamerica-northeast1
       - run:

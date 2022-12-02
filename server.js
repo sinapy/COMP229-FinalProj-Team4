@@ -11,8 +11,19 @@ const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 var configFirebase = require('./app/config/firebaseAdmin');
+
+// Imports the Google Cloud client library
+const {ErrorReporting} = require('@google-cloud/error-reporting');
+
+// Instantiates a client
+const errors = new ErrorReporting();
+
+// Reports a simple error
+errors.report('1 passes!');
+
 let fb = configFirebase();
 
+errors.report('2 passes!');
 
 
 const app = express();
@@ -37,6 +48,8 @@ app.use(
     })
 );
 
+errors.report('3 passes!');
+
 const db = require("./app/models");
 const Role = db.role;
 
@@ -54,6 +67,8 @@ db.mongoose
         process.exit();
     });
 
+
+errors.report('4 passes!');
 // simple route
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to WLDG application." });

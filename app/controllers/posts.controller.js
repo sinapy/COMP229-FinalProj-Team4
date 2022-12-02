@@ -3,8 +3,26 @@ let productModel = require('../models/post');
 let moment = require('moment');
 let fb = require('firebase-admin');
 
+exports.processGetAll = async (req, res) => {
+    let db = fb.firestore();
+    console.log('******************passes******************');
+    const posts = await db.collection('posts').get();
+    console.log('******************got info******************')
+    let response = posts.docs.map(doc => doc.data());
+    console.log('*******************iterated******************')
+    res.status(200).send("ok")
+}
+
+exports.processGetById = async (req, res) => {
+    let db = fb.firestore();
+    let id = req.params.id;
+    let response = await db.collection('posts').get(id)
+    res.status(200)
+        .send(JSON.parse(response));
+}
+
 // // Processes the data submitted from the Edit form to update a todo
-module.exports.processEdit = async (req, res, next) => {
+exports.processEdit = async (req, res) => {
 
     let id = req.params.id
     let db = fb.firestore();
@@ -37,7 +55,7 @@ module.exports.processEdit = async (req, res, next) => {
 }
 
 // // Deletes a todo based on its id.
-module.exports.processDelete = async (req, res, next) => {
+exports.processDelete = async (req, res) => {
 
     // ADD YOUR CODE HERE
 
@@ -57,7 +75,7 @@ module.exports.processDelete = async (req, res, next) => {
 }
 
 // // Processes the data submitted from the Add form to create a new todo
-module.exports.processAdd = async (req, res, next) => {
+exports.processAdd = async (req, res) => {
 
     console.log(req.body);
 
@@ -65,13 +83,13 @@ module.exports.processAdd = async (req, res, next) => {
     // Generate locally a new document
     let newDoc = db.collection('posts').doc();
 
-    let newPost = productModel({
+    let newPost = ({
         _id: newDoc.id,
         title: req.body.title,
         price: req.body.price,
         status: req.body.status,
         expires_on: req.body.expires_on,
-        created_by: req.user.id,
+        created_by: req.body.created_by,
         category: req.body.category
     });
 

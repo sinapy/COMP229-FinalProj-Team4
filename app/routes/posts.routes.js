@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let postsController = require('../controllers/posts');
+let postsController = require('../controllers/posts.controller');
 const checkAuthenticated = require('../middlewares/checkAuthenticated.js');
 const {authJwt} = require("../middlewares");
 

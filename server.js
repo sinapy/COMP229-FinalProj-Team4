@@ -7,8 +7,12 @@ const dbname = "WDLG"
 
 let atlasDB = `mongodb+srv://${username}:${password}@${cluster}.qysqx.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
-const express = require("express");
-const cors = require("cors");
+var express = require('express');
+var logger = require('morgan');
+let cors = require('cors');
+
+
+
 const cookieSession = require("cookie-session");
 var configFirebase = require('./app/config/firebaseAdmin');
 
@@ -16,7 +20,7 @@ var configFirebase = require('./app/config/firebaseAdmin');
 const {ErrorReporting} = require('@google-cloud/error-reporting');
 
 // Instantiates a client
-const errors = new ErrorReporting();
+const errors = new ErrorReporting({reportMode: 'always'});
 
 // Reports a simple error
 errors.report('1 passes!');
@@ -28,21 +32,26 @@ errors.report('2 passes!');
 
 const app = express();
 
-var corsOptions = {
-    origin: "http://localhost:4200"
-};
+// var corsOptions = {
+//     origin: "http://localhost:4200"
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(cors());
+app.options('*', cors());
+
+app.use(logger('dev'));
 
 // parse requests of content-type - application/json
 app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(
     cookieSession({
-        name: "bezkoder-session",
+        name: "WLDG-session",
         secret: "COOKIE_SECRET", // should use as secret environment variable
         httpOnly: true
     })
@@ -77,6 +86,7 @@ app.get("/", (req, res) => {
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
+//require("./app/routes/posts.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

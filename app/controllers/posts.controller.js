@@ -10,7 +10,7 @@ exports.processGetAll = async (req, res) => {
     console.log('******************got info******************')
     let response = posts.docs.map(doc => doc.data());
     console.log('*******************iterated******************')
-    res.status(200).send("ok")
+    res.status(200).send(response)
 }
 
 exports.processGetById = async (req, res) => {

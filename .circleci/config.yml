@@ -18,7 +18,8 @@ jobs:
           name: Create app.yaml
           command: |
             echo -e "runtime: nodejs16\nenv_variables:\n  ATLASDB: $ATLASDB\n  SECRETKEY: $SECRETKEY\n" > app.yaml
-      - run: |
+
+      - run:
           name: Setup Google Cloud CLI
           command: |
             echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-

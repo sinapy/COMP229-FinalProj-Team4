@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@google-cloud/error-reporting": "^3.0.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "cookie-session": "^2.0.0",

@@ -10,18 +10,33 @@ module.exports = function(app) {
         next();
     });
 
-    app.get('/view-posts', controller.processGetAll);
+//     app.get('/view-posts', controller.processGetAll);
+//
+//     /* POST Route for processing the Add page - CREATE Operation */
+//     app.post('/create-post', controller.processAdd);
+//
+// // Route for Details
+//     app.get('/details/:id', [authJwt.verifyToken], controller.processGetById);
+//
+// // Routers for edit
+//     app.put('/edit/:id', [authJwt.verifyToken], controller.processEdit);
+//
+// // Delete
+//     app.get('/delete/:id', [authJwt.verifyToken], controller.processDelete);
 
-    /* POST Route for processing the Add page - CREATE Operation */
-    app.post('/create-post', controller.processAdd);
+    // get all post
+    app.get('/api/posts/', controller.getAllposts);
 
-// Route for Details
-    app.get('/details/:id', [authJwt.verifyToken], controller.processGetById);
+//get a post by id
+    app.get('/api/posts/:id', controller.getPostDetailsById);
 
-// Routers for edit
-    app.post('/edit/:id', [authJwt.verifyToken], controller.processEdit);
+// createnew post
+    app.post('/api/posts/', controller.createPost);
 
-// Delete
-    app.get('/delete/:id', [authJwt.verifyToken], controller.processDelete);
+// update a post
+    app.put('/api/posts/:id', controller.updatePost);
+
+// delete a post
+    app.delete('/:id', controller.deletePost);
 
 }

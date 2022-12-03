@@ -96,7 +96,7 @@ exports.signin = (req, res) => {
             for (let i = 0; i < user.roles.length; i++) {
                 authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
             }
-
+            console.log(token);
             req.session.token = token;
 
             res.status(200).send({

@@ -37,6 +37,6 @@ module.exports = function(app) {
     app.put('/api/posts/:id', controller.updatePost);
 
 // delete a post
-    app.delete('/:id', controller.deletePost);
+    app.delete('/api/posts/:id', controller.deletePost);
 
 }

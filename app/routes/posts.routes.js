@@ -31,12 +31,12 @@ module.exports = function(app) {
     app.get('/api/posts/:id', controller.getPostDetailsById);
 
 // createnew post
-    app.post('/api/posts/', [authJwt.verifyToken], controller.createPost);
+    app.post('/api/posts/', [authJwt.verifyToken],  controller.createPost);
 
 // update a post
-    app.put('/api/posts/:id', [authJwt.verifyToken], controller.updatePost);
+    app.put('/api/posts/:id', [authJwt.verifyToken], [authJwt.isAllowed], controller.updatePost);
 
 // delete a post
-    app.delete('/api/posts/:id', [authJwt.verifyToken], controller.deletePost);
+    app.delete('/api/posts/:id', [authJwt.verifyToken], [authJwt.isAllowed], controller.deletePost);
 
 }

@@ -1,5 +1,5 @@
 // create a reference to the model
-let productModel = require('../models/post');
+let productModel = require('../models/post.model');
 let moment = require('moment');
 let fb = require('firebase-admin');
 
@@ -145,6 +145,7 @@ exports.createPost = (req, res, next) => {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
+    console.log(req.payload);
 
     let newPost = productModel({
         _id: Math.random().toString(36).slice(2),
@@ -152,8 +153,10 @@ exports.createPost = (req, res, next) => {
         price: req.body.price,
         //status: req.body.status,
         expires_on: req.body.expires_on,
-
+        owner: req.userId
     });
+
+    console.log(newPost);
 
     productModel.create(newPost).then(data => {
         res.send(data);
@@ -185,6 +188,7 @@ exports.updatePost = (req, res, next) => {
         price: req.body.price,
         //status: req.body.status,
         expires_on: req.body.expires_on,
+        owner: (req.body.owner == null || req.body.owner == "")? req.userId : req.body.owner
     });
 
     productModel.findByIdAndUpdate(id, updatedPost, { useFindAndModify: false })

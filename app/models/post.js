@@ -26,11 +26,11 @@ let productModel = mongoose.Schema(
     {
         _id: String,
         title: String,
-        status: {
-            type: String,
-            enum: ['ENABLE', 'DISABLE'],
-            default: 'ENABLE'
-        },
+        // status: {
+        //     type: String,
+        //     enum: ['ENABLE', 'DISABLE'],
+        //     default: 'ENABLE'
+        // },
         price: Number,
         expires_on: Date
     },

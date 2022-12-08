@@ -150,7 +150,7 @@ exports.createPost = (req, res, next) => {
         _id: Math.random().toString(36).slice(2),
         title: req.body.title,
         price: req.body.price,
-        status: req.body.status,
+        //status: req.body.status,
         expires_on: req.body.expires_on,
 
     });
@@ -183,7 +183,7 @@ exports.updatePost = (req, res, next) => {
     let updatedPost = productModel({
         title: req.body.title,
         price: req.body.price,
-        status: req.body.status,
+        //status: req.body.status,
         expires_on: req.body.expires_on,
     });
 

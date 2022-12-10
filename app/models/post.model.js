@@ -33,6 +33,7 @@ let productModel = mongoose.Schema(
         // },
         price: Number,
         expires_on: Date,
+		questions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Question' }],
         owner: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"

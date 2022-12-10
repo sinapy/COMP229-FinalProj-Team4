@@ -127,7 +127,7 @@ exports.getPostDetailsById = (req, res, next) => {
 
     let id = req.params.id;
 
-    productModel.findById(id).then(data => {
+    productModel.findById(id).populate({ path: 'questions', model: 'Question', populate: { path: 'answer', model: 'Answer' } }).then(data => {
         if (!data)
             res.status(404).send({ message: "Not found Post with id " + id });
         else res.send(data);

@@ -26,15 +26,15 @@ isAllowed = (req, res, next) => {
 
     User.findById(req.userId).exec((err, user) => {
         if (err) {
-            res.status(501).send({ message: err });
+            res.status(500).send({ message: err });
             return;
         }
         console.log(user);
 
-        Post.findById(req.body._id || req.params.id, function (err, post) {
+        Post.findById(req.body.id || req.params.id, function (err, post) {
 
                 if (err) {
-                    res.status(502).send({ message: err });
+                    res.status(500).send({ message: err });
                     return;
                 }
 
@@ -56,7 +56,7 @@ isAllowed = (req, res, next) => {
                 },
                 (err, roles) => {
                     if (err) {
-                        res.status(503).send({ message: err });
+                        res.status(500).send({ message: err });
                         return;
                     }
 

@@ -46,7 +46,7 @@ exports.createAnswer = function(req, res, next) {
 		if (data) {
 			Post.findById(req.params.postId).then(data1 => {
 				if (data1.owner != req.userId) {
-					res.status(400).send({ message: "You are now authorized to answer this question." });
+					res.status(400).send({ message: "You are not authorized to answer this question." });
 				} else {
 					const answer = new Answer(req.body);
 					answer.author = data1.owner;

@@ -184,7 +184,7 @@ exports.updatePost = (req, res, next) => {
     console.log(req.body);
 
     let updatedPost = productModel({
-        title: req.body.title,
+            title: req.body.title,
         price: req.body.price,
         //status: req.body.status,
         expires_on: req.body.expires_on,

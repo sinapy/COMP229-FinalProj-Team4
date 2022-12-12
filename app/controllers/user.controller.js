@@ -1,4 +1,3 @@
-const { name } = require("ejs");
 const User = require("../models/user.model");
 exports.allAccess = (req, res) => {
     res.status (200).send("Public Content.");
@@ -12,11 +11,11 @@ exports.getName = (req, res) => {
             res.status(501).send({message: err});
             return;
         }
-        let username = user.username()
+        let username = user.username
         if (username == null) {
             username = ""
         }
-        res.status(200).send(user.username())
+        res.status(200).send(user.username)
     });
 }
 exports.adminBoard = (req, res) => {
@@ -32,6 +31,7 @@ exports.editName = (req, res) =>{
         }
 
         let updatedUser = User({
+            _id: req.userId,
             email: user.email,
             password: user.password,
             username: req.body.newName
@@ -42,13 +42,15 @@ exports.editName = (req, res) =>{
         .then(data => {
                 if (!data) {
                     res.status(404).send({
-                        message: `Cannot update name with =${name}. Please enter new name again!`
+                        message: `Cannot update name with =${req.body.newName}. Please enter new name again!`
                     });
                 } else res.send({ message: "User name was entered correctly." });
             })
             .catch(err => {
+                console.log(err)
                 res.status(500).send({
                     message: "Error updating name"
                 });
             });
-        }}
+        });
+}

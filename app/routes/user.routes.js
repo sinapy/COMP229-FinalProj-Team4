@@ -1,6 +1,5 @@
 const { authJwt } = require("../middlewares");
 const controller = require("../controllers/user.controller");
-const {auth} = require("firebase-admin");
 
 module.exports = function(app) {
     app.use(function(req, res, next) {
@@ -16,7 +15,7 @@ module.exports = function(app) {
 
     app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
 
-    app.get("api/user/:id", [authJwt.verifyToken], controller.getName);
+    app.get("/api/user", [authJwt.verifyToken], controller.getName);
 
     app.get(
         "/api/test/admin",
@@ -24,5 +23,5 @@ module.exports = function(app) {
         controller.adminBoard
     );
     
-    app.put("api/user/", [authJwt.verifyToken], controller.editName);
+    app.put("/api/user", [authJwt.verifyToken], controller.editName);
 };

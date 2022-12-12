@@ -23,4 +23,6 @@ module.exports = function(app) {
         [authJwt.verifyToken, authJwt.isAllowed],
         controller.adminBoard
     );
+    
+    app.put("api/user/", [authJwt.verifyToken], controller.editName);
 };

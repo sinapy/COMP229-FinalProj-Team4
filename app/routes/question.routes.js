@@ -13,6 +13,6 @@ module.exports = function(app) {
 	
 app.post("/api/posts/:postId/questions", controller.createQuestion);
 
-app.post("/api/posts/:postId/questions/:questionId/answer", controller.createAnswer);
+app.post("/api/posts/:postId/questions/:questionId/answer",[authJwt.verifyToken], controller.createAnswer);
 
 };

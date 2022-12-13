@@ -37,10 +37,7 @@ exports.createQuestion = function(req, res, next) {
 exports.createAnswer = function(req, res, next) {
 	// CREATE Question
 	// INSTANTIATE INSTANCE OF MODEL
-	console.log(req.userId)
-
-
-	console.log(req.params.questionId);
+	console.log(req.body)
 
 	Question.findById(req.params.questionId).then(data => {
 		if (data) {
@@ -59,6 +56,8 @@ exports.createAnswer = function(req, res, next) {
 							res.send(Promise.all([data.save()]));
 						})
 						.catch(err => {
+							console.log("problem is here")
+							console.log(err.message)
 							res.status(500).send({
 								message:
 									err.message || "Some error occurred while creating the Question."

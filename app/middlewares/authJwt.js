@@ -26,23 +26,19 @@ isAllowed = (req, res, next) => {
 
     User.findById(req.userId).exec((err, user) => {
         if (err) {
+            console.log("hello")
             res.status(500).send({ message: err });
             return;
         }
-        console.log(user);
 
-        Post.findById(req.body.id || req.params.id, function (err, post) {
+
+        Post.findById(req.body.id || req.params.id || req.params.postId, function (err, post) {
 
                 if (err) {
                     res.status(500).send({ message: err });
                     return;
                 }
 
-                console.log(req);
-                console.log(req._id);
-                console.log(post);
-                console.log(post.owner);
-                console.log(req.userId);
 
                 if (post?.owner._id.toString() === req.userId){
                     console.log('this is happening')

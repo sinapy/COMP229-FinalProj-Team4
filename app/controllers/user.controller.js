@@ -31,7 +31,7 @@ exports.editName = (req, res) =>{
         }
 
         let updatedUser = User({
-            _id: req.userId,
+            _id: user._id,
             email: user.email,
             password: user.password,
             username: req.body.newName
